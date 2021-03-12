@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(sample)
+project(send_lots_of_points_node_ros2)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -26,7 +26,7 @@ find_package(ament_cmake_auto REQUIRED)
 ament_auto_find_build_dependencies()
 
 ament_auto_add_executable(${PROJECT_NAME}
-src/send_lots_of_points_node.cpp)
+src/send_lots_of_points_node_ros2.cpp)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -35,5 +35,4 @@ endif()
 
 ament_auto_package(
   INSTALL_TO_SHARE
-    launch
 )
