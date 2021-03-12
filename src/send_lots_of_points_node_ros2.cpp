@@ -43,8 +43,8 @@ int main(int argc, char **argv)
   rclcpp::init(argc, argv);
 
   int rate = 1;
-  bool moving = true;
-  int size = 100;
+  int width = 100;
+  int length = 100;
 
   if (argc > 1)
   {
@@ -52,11 +52,11 @@ int main(int argc, char **argv)
   }
   if (argc > 2)
   {
-    moving = (atoi(argv[2]) != 0);
+    width = atoi(argv[2]);
   }
   if (argc > 3)
   {
-    size = atoi(argv[3]);
+    length = atoi(argv[3]);
   }
 
   auto node = rclcpp::Node::make_shared("send_lots_of_points");
@@ -66,8 +66,6 @@ int main(int argc, char **argv)
   rclcpp::Rate loop_rate(rate);
 
   sensor_msgs::msg::PointCloud msg;
-  int width = size;
-  int length = 2 * size;
   msg.points.resize(width * length);
   msg.header.frame_id = "map";
 
