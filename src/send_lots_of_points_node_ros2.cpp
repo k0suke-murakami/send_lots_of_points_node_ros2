@@ -69,7 +69,7 @@ int main(int argc, char **argv)
   msg.points.resize(width * length);
   msg.header.frame_id = "map";
 
-  pcl::PointCloud<pcl::PointXYZ> cloud;
+  pcl::PointCloud<pcl::PointXYZI> cloud;
 
   int count = 0;
   while (rclcpp::ok())
@@ -85,10 +85,11 @@ int main(int argc, char **argv)
         point.x = static_cast<float>(x / 100.0);
         point.y = static_cast<float>(y / 100.0);
         point.z = ((x + y + count) % 100) / 100.0f;
-        pcl::PointXYZ tmp_point;
+        pcl::PointXYZI tmp_point;
         tmp_point.x = static_cast<float>(x / 100.0);
         tmp_point.y = static_cast<float>(y / 100.0);
         tmp_point.z = static_cast<float>(((x + y + count) % 100) / 100.0f);
+        tmp_point.intensity = 1.0;
         cloud.push_back(tmp_point);
       }
     }
