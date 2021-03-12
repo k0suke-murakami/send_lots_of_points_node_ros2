@@ -74,7 +74,7 @@ int main(int argc, char **argv)
   int count = 0;
   while (rclcpp::ok())
   {
-    width++;
+    // width++;
     msg.points.resize(width * length + (count % 2));
 
     for (int x = 0; x < width; x++)
@@ -106,17 +106,17 @@ int main(int argc, char **argv)
     ret.header.frame_id = "map";
 
     printf(
-        "publishing at %d hz, %s, %d x %d points.\n",
-        rate, (moving ? "moving" : "static"), width, length);
+        "publishing at %d hz, %d x %d points.\n",
+        rate, width, length);
 
     pub->publish(msg);
     pub2->publish(ret);
 
     rclcpp::spin_some(node);
     loop_rate.sleep();
-    if (moving)
-    {
-      ++count;
-    }
+    // if (moving)
+    // {
+    //   ++count;
+    // }
   }
 }
