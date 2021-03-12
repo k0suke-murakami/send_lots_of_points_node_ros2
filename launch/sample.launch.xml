@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <!-- sample -->
+  <node pkg="sample" exec="sample" name="sample" output="screen"/>
+
+  <!-- Rviz -->
+  <node pkg="rviz2" exec="rviz2" name="rviz2" output="screen"/>
+</launch>
