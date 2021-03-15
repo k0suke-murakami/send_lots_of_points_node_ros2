@@ -65,15 +65,14 @@ int main(int argc, char **argv)
   auto pub2 = node->create_publisher<sensor_msgs::msg::PointCloud2>("pointcloud2", 100);
   rclcpp::Rate loop_rate(rate);
 
-  sensor_msgs::msg::PointCloud msg;
-  msg.points.resize(width * length);
-  msg.header.frame_id = "map";
-
-  pcl::PointCloud<pcl::PointXYZI> cloud;
-
   int count = 0;
   while (rclcpp::ok())
   {
+    sensor_msgs::msg::PointCloud msg;
+    msg.points.resize(width * length);
+    msg.header.frame_id = "map";
+
+    pcl::PointCloud<pcl::PointXYZI> cloud;
     // width++;
     msg.points.resize(width * length + (count % 2));
 
